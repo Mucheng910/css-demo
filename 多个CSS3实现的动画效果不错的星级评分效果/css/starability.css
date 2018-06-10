@@ -1,0 +1,69 @@
+
+.starability-checkmark {
+	display: block;
+	position: relative;
+	width: 150px;
+	min-height: 60px;
+	padding: 0;
+	border: none
+}
+.starability-checkmark>input {
+	position: absolute;
+	opacity: 0;    //设置选择按钮为透明
+}
+.starability-checkmark>input:focus~label  {
+	background-position: 0 -30px;  /* 水平距离  上下距离*/
+}
+.starability-checkmark>label {
+	position: relative;
+	display: inline-block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	color: transparent;
+	cursor: pointer;    /*手*/
+	background-image: url(../images/icons-checkmark.png);
+	background-repeat: no-repeat
+}
+
+.starability-checkmark>label {
+	position: static;
+}
+.starability-checkmark>label:before {
+	display: none;
+	position: absolute;
+	content: ' ';    /*插入生成的内容*/
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/icons-checkmark.png);
+	background-repeat: no-repeat;
+	background-position: 0 -60px;
+	right: -60px
+}
+
+.starability-checkmark>input:checked+label:before {
+	display: block;
+	animation-name: d;
+	animation-duration: .7s;
+	animation-fill-mode: forwards
+}
+@keyframes d {
+	0% {
+		transform: translateX(-15px)
+	}
+	60% {
+		opacity: 1
+	}
+	70% {
+		transform: none
+	}
+	80% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+
+
+/*：checked 选择器匹配已被选中的元素*/
